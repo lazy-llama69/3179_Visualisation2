@@ -35,7 +35,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/js/ne_110m_jus_aus.json",
+        "url": "./js/ne_110m_jus_aus.json",
         "format": {"type": "topojson", "feature": "gadm41_AUS_1"}   
       },
       "mark": {
@@ -46,7 +46,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv"
+        "url": "./data/tornado.csv"
       },
       "transform": [
         {
