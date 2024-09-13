@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
+  "width": 930,
   "height": 450,
   "title": {
     "text": "1 Jan 2014 - 14 Sep 2024",
@@ -8,23 +8,24 @@
     "font": "Arial", 
     "anchor": "start", 
     "dy": -10        
-  }
-  ,
+  },
   "config": {
-    "background": "#dcecff", 
-    "title": {
-      "fontSize": 24,
-      "fontWeight": "bold",
-      "font": "Arial",
-      "anchor": "end"
-    }
+    "background": "#fffde7"  
   },
   "projection": {
     "type": "mercator",
     "center": [135.0, -28.0],
-    "scale": 550
+    "scale": 550,
+    "translate": [500, 225]
   },
   "layer": [
+    {
+      "data": {"sphere": true},
+      "mark": {
+        "type": "geoshape",
+        "fill": "#dcecff"  
+      }
+    },
     {
       "data": {"graticule": true},
       "mark": {
@@ -35,13 +36,13 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/js/ne_110m_jus_aus.json",
+        "url": "./js/ne_110m_jus_aus.json",
         "format": {"type": "topojson", "feature": "gadm41_AUS_1"}   
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#d7ccc8", 
-        "stroke": "#ffffff" 
+        "fill": "#d7ccc8",  
+        "stroke": "#ffffff"  
       }
     },
     {
@@ -61,7 +62,10 @@
           "filter": "datum.latitude !== 0 && datum.longitude !== 0"
         }
       ],
-      "mark": {"type": "circle", "tooltip": true},
+      "mark": {
+        "type": "circle",
+        "tooltip": true
+      },
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
@@ -76,7 +80,14 @@
           "type": "quantitative",
           "title": "Max speed in km/h",
           "scale": {"scheme": "reds", "domain": [0, 300]}
-        }
+        },
+        "tooltip": [
+          {"field": "longitude", "type": "quantitative", "title": "Longitude"},
+          {"field": "latitude", "type": "quantitative", "title": "Latitude"},
+          {"field": "Fujita scale", "type": "quantitative", "title": "Magnitude (Fuji scale)"},
+          {"field": "Max speed (km/h)", "type": "quantitative", "title": "Max speed (km/h)"},
+          {"field": "State", "type": "nominal", "title": "State"}
+        ]
       }
     }
   ]
