@@ -35,7 +35,7 @@
     },
     {
       "data": {
-        "url": "./js/ne_110m_jus_aus.json",
+        "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/js/ne_110m_jus_aus.json",
         "format": {"type": "topojson", "feature": "gadm41_AUS_1"}   
       },
       "mark": {
