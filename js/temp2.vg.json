@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 450,
+    "title": "Tornadoes between 1 Jan 2014 and 14 Sep 2024",
+    "projection": {"type": "equalEarth"},
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/data/earthquake.csv"
+        },
+        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "encoding": {
+          "longitude": {"field": "Longitude", "type": "quantitative"},
+          "latitude": {"field": "Latitude", "type": "quantitative"},
+          "size": {
+            "field": "Fujita scale",
+            "type": "quantitative",
+            "title": "Magnitude (Fuji scale)",
+            "scale": {"domain": [4, 8]}
+          },
+          "color": {
+            "field": "Max speed (km/h)",
+            "type": "quantitative",
+            "title": "Max speed in km/h",
+            "scale": {"scheme": "reds"}
+          }
+        }
+      }
+    ]
+  }
