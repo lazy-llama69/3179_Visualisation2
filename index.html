@@ -7,20 +7,24 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-    <script src="main.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- <script src="main.js"></script> -->
     <title>Vega-Lite Graphs</title>
 </head>
 
 <body>
     <h1>Vega-Lite Graphs</h1>
     <!-- <div id="bar_chart"></div> Bar chart container -->
-    <!-- <div id="scatter_plot"></div> Scatter plot container -->
+    <!-- <div id="scatter_plot"></div> Scatter plot container -->\
+    <div id="symbol_map"></div> <!-- Add this div -->
     <script type="text/javascript">
 
         var spec2 = "js/temp2.vg.json";
         vegaEmbed('#symbol_map', spec2).then(function(result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
+        d3.csv('https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv')
+        .then(data => console.log(data));
       </script>
 </body>
 
