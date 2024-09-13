@@ -1,53 +1,83 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 450,
-    "title": "Tornadoes between 1 Jan 2014 and 14 Sep 2024",
-    "projection": {"type": "mercator",
-    "center": [135.0, -25.0], 
-    "scale": 550},
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/js/ne_110m_jus_aus.json",
-          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-        },
-        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 450,
+  "title": {
+    "text": "1 Jan 2014 - 14 Sep 2024",
+    "fontSize": 18, 
+    "font": "Arial", 
+    "anchor": "start", 
+    "dy": -10        
+  }
+  ,
+  "config": {
+    "background": "#dcecff", 
+    "title": {
+      "fontSize": 24,
+      "fontWeight": "bold",
+      "font": "Arial",
+      "anchor": "end"
+    }
+  },
+  "projection": {
+    "type": "mercator",
+    "center": [135.0, -28.0],
+    "scale": 550
+  },
+  "layer": [
+    {
+      "data": {"graticule": true},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ccc", 
+        "strokeWidth": 0.5 
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/js/ne_110m_jus_aus.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv"
-        },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d7ccc8", 
+        "stroke": "#ffffff" 
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv"
+      },
       "transform": [
         {
           "calculate": "toNumber(datum.Latitude)",
-          "as": "lat"
+          "as": "latitude"
         },
         {
           "calculate": "toNumber(datum.Longitude)",
-          "as": "lon"
+          "as": "longitude"
         },
         {
-            "filter": "datum.lat !== 0 && datum.lon !== 0"
-          }
+          "filter": "datum.latitude !== 0 && datum.longitude !== 0"
+        }
       ],
-        "mark": {"type": "circle", "tooltip": {"content": "data"}},
-        "encoding": {
-          "longitude": {"field": "lon", "type": "quantitative"},
-          "latitude": {"field": "lat", "type": "quantitative"},
-          "size": {
-            "field": "Fujita scale",
-            "type": "quantitative",
-            "title": "Magnitude (Fuji scale)",
-            "scale": {"domain": [-1, 5]}
-          },
-          "color": {
-            "field": "Max speed (km/h)",
-            "type": "quantitative",
-            "title": "Max speed in km/h",
-            "scale": {"scheme": "reds"}
-          }
+      "mark": {"type": "circle", "tooltip": true},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "Fujita scale",
+          "type": "quantitative",
+          "title": "Magnitude (Fuji scale)",
+          "scale": {"domain": [0, 5], "range": [100, 1000]}
+        },
+        "color": {
+          "field": "Max speed (km/h)",
+          "type": "quantitative",
+          "title": "Max speed in km/h",
+          "scale": {"scheme": "reds", "domain": [0, 300]}
         }
       }
-    ]
-  }
+    }
+  ]
+}
