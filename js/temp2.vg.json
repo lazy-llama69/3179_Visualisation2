@@ -1,13 +1,26 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 840,
-  "height": 510,
+  "height": 480,
   "autosize": {
     "type": "fit",
     "contains": "padding"
   },
+  "params": [
+    {
+      "name": "Magnitude_filter",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 5,
+        "step": 1,
+        "name": "Minimum Magnitude (Fuji scale): "
+      }
+    }
+  ],
   "title": {
-    "text": "1 Jan 2014 - 14 Sep 2024",
+    "text": "1 Jan 2010 - 14 Sep 2024",
     "fontSize": 18,
     "font": "Arial",
     "anchor": "start",
@@ -63,14 +76,10 @@
           "as": "longitude"
         },
         {
-          "filter": "datum.latitude !== 0 && datum.longitude !== 0"
-        }
-      ],
-      "params": [
+          "filter": "datum.latitude != 0 && datum.longitude != 0"
+        },
         {
-          "name": "State_highlight",
-          "select": { "type": "point", "fields": ["State"] },
-          "bind": "legend"
+          "filter": "datum['Fujita scale'] >= Magnitude_filter"
         }
       ],
       "mark": {
@@ -84,7 +93,7 @@
           "field": "Fujita scale",
           "type": "quantitative",
           "title": "Magnitude (Fuji scale)",
-          "scale": { "domain": [-1, 5] }
+          "scale": { "domain": [-1, 3] }
         },
         "color": {
           "field": "Max speed (km/h)",
@@ -92,27 +101,55 @@
           "title": "Max speed in km/h",
           "scale": { "scheme": "reds", "domain": [0, 300] }
         },
-        "shape": {
-          "field": "State",
-          "type": "nominal",
-          "scale": {
-            "domain": ["NSW", "QLD", "VIC", "NT", "WA", "TAS"],
-            "range": ["circle", "square", "triangle", "cross", "diamond", "triangle-down"]
-          },
-          "legend": { "title": "State", "orient": "right" } 
-        },
-        
         "opacity": {
-          "condition": { "param": "State_highlight", "value": 0.6 },
-          "value": 0.1
+          "value": 0.8
         },
         "tooltip": [
           { "field": "longitude", "type": "quantitative", "title": "Longitude" },
           { "field": "latitude", "type": "quantitative", "title": "Latitude" },
           { "field": "Fujita scale", "type": "quantitative", "title": "Magnitude (Fuji scale)" },
-          { "field": "Max speed (km/h)", "type": "quantitative", "title": "Max speed (km/h)" },
-          { "field": "State", "type": "nominal", "title": "State" }
+          { "field": "Max speed (km/h)", "type": "quantitative", "title": "Max speed (km/h)" }
         ]
+      }
+    },
+    {
+      "data": {
+        "url": "./data/tornado.csv"
+      },
+      "transform": [
+        {
+          "calculate": "toNumber(datum.Latitude)",
+          "as": "latitude"
+        },
+        {
+          "calculate": "toNumber(datum.Longitude)",
+          "as": "longitude"
+        },
+        {
+          "filter": "datum.latitude != 0 && datum.longitude != 0"
+        },
+        {
+          "filter": "datum['Fujita scale'] >= 3"  
+        },
+        {
+          "calculate": "'Magnitude: ' + datum['Fujita scale'] + ', Max Speed: ' + datum['Max speed (km/h)'] ",
+          "as": "customAnnotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx":10,
+        "dy": -10,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "fill": "black"
+      },
+      "encoding": {
+        "longitude": { "field": "longitude", "type": "quantitative" },
+        "latitude": { "field": "latitude", "type": "quantitative" },
+        "text": { "field": "customAnnotation", "type": "nominal" }
+
       }
     }
   ]

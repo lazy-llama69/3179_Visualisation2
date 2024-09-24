@@ -1,51 +1,64 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 849,
-    "height": 500,
+    "height": 480,
     "autosize": {
       "type": "fit",
-      "contains": "padding"},
+      "contains": "padding"
+    },
+    "params": [
+        {
+            "name": "Hail_size_filter",
+            "value": 0,
+            "bind": {
+              "input": "range",
+              "min": 0,
+              "max": 16,
+              "step": 1,
+              "name": "Minimum Hail Size (cm): "
+            }
+          }
+        ],
     "title": {
       "text": "1 Jan 2010 - 24 Sep 2024",
-      "fontSize": 18, 
-      "font": "Arial", 
-      "anchor": "start", 
-      "dy": -10        
+      "fontSize": 18,
+      "font": "Arial",
+      "anchor": "start",
+      "dy": -10
     },
     "config": {
-      "background": "#fffde7"  
+      "background": "#fffde7"
     },
     "projection": {
       "type": "mercator",
       "center": [135.0, -28.0],
       "scale": 550
-      
     },
     "layer": [
       {
         "data": {"sphere": true},
         "mark": {
           "type": "geoshape",
-          "fill": "#dcecff"  
+          "fill": "#dcecff"
         }
       },
       {
         "data": {"graticule": true},
         "mark": {
           "type": "geoshape",
-          "stroke": "#ccc", 
-          "strokeWidth": 0.5 
+          "stroke": "#ccc",
+          "strokeWidth": 0.5
         }
       },
       {
         "data": {
           "url": "./js/ne_110m_jus_aus.json",
-          "format": {"type": "topojson", "feature": "gadm41_AUS_1"}   
+          "format": {"type": "topojson", "feature": "gadm41_AUS_1"}
         },
         "mark": {
           "type": "geoshape",
-          "fill": "#d7ccc8",  
-          "stroke": "#ffffff"  
+          "fill": "#d7ccc8",
+          "stroke": "#ffffff"
         }
       },
       {
@@ -62,17 +75,12 @@
             "as": "longitude"
           },
           {
-            "filter": "datum.latitude != 0 && datum.longitude != 0 && datum.Duration != 0"
+            "filter": "datum.latitude != 0 && datum.longitude != 0"
+          },
+          {
+            "filter": "datum['Hail size'] >= Hail_size_filter"
           }
         ],
-        "params":[
-        {
-        "name": "State_highlight",
-        "select": {"type": "point", "fields": ["State"]},
-        "bind": "legend"
-        }
-        ],
-
         "mark": {
           "type": "point",
           "tooltip": true
@@ -92,19 +100,9 @@
             "title": "Duration in mins",
             "scale": {"scheme": "redblue", "domain": [0, 160]}
           },
-          "shape": {
-            "field": "State",
-            "type": "nominal",
-            "scale": {
-                "domain": ["NSW", "QLD", "VIC", "NT", "WA", "TAS"],
-                "range": ["circle", "square", "triangle", "cross", "diamond", "triangle-down"]
-            }
-            },
-        "opacity": {
-          "condition": { "param": "State_highlight", "value": 0.6 },
-          "value": 0.1
-        },
-
+          "opacity": {
+            "value": 0.8
+          },
           "tooltip": [
             {"field": "longitude", "type": "quantitative", "title": "Longitude"},
             {"field": "latitude", "type": "quantitative", "title": "Latitude"},
@@ -113,7 +111,47 @@
             {"field": "State", "type": "nominal", "title": "State"}
           ]
         }
+      },
+      {
+        "data": {
+          "url": "./data/hail.csv"
+        },
+        "transform": [
+          {
+            "calculate": "toNumber(datum.Latitude)",
+            "as": "latitude"
+          },
+          {
+            "calculate": "toNumber(datum.Longitude)",
+            "as": "longitude"
+          },
+          {
+            "filter": "datum.latitude != 0 && datum.longitude != 0"
+          },
+          {
+            "filter": "datum['Hail size'] > 11"  
+          },
+          {
+            "calculate": "'Hail Size: ' + datum['Hail size'] + ' cm, Duration: ' + datum['Duration']",
+            "as": "customAnnotation"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 10, 
+          "dy": -10,
+          "fontSize": 12,  
+          "fontWeight": "bold",
+          "fill": "black"
+        },
+        "encoding": {
+          "longitude": { "field": "longitude", "type": "quantitative" },
+          "latitude": { "field": "latitude", "type": "quantitative" },
+          "text": { "field": "customAnnotation", "type": "nominal" }
+        }
       }
+      
     ]
   }
   
