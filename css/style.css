@@ -8,16 +8,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: auto;
 }
 
-/* Heading styling */
+Heading styling
 h1 {
     font-size: 40px;
     text-align: center;
     color: #333; /* Dark grey text */
-    margin-top: 20px;
-    margin-bottom: 20px;
     font-family: 'Helvetica Neue', sans-serif;
     letter-spacing: 1.2px;
     width: 100%;
@@ -25,31 +23,67 @@ h1 {
     top: 10px; /* Keep the title at the top */
 }
 
-/* Style the container for the map */
 #symbol_map {
     position: relative;
-    border: 2px solid #e0e0e0; /* Soft border to give a subtle outline */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 80%; /* Set width to 80% of the viewport */
-    max-width: 1200px; /* Max width for large screens */
-    height: 80%; /* Set height to 80% of the viewport */
-    background-color: #fffde7; /* Light pastel yellow for the map container */
-    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 120%; /* Make it take more of the available width */
+    max-width: 900px; /* Reduce max-width to prevent the visualization from being too wide */
+    height: 530px; /* Set a fixed height */
+    background-color: #fffde7;
+    padding: 10px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+#hail_map {
+    position: relative;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 120%; /* Make it take more of the available width */
+    max-width: 900px; /* Reduce max-width to prevent the visualization from being too wide */
+    height: 530px; /* Set a fixed height */
+    background-color: #fffde7;
+    padding: 10px;
     background-size: cover;
     background-position: center;
     overflow: hidden;
 }
 
+.description-left {
+    width: 100%; /* Increase the width of the text container */
+    padding: 10px; /* Add padding for better readability */
+    text-align: left; /* Ensure the text is aligned to the left */
+    
+}
+.vis-container {
+    width: 100%;
+}
+
+.pure-u-1-3 {
+    flex-grow: 1; /* Allow the left section to grow more */
+}
+
+.pure-u-2-3 {
+    flex-grow: 0.7; /* Make the right section grow less */
+}
+
+
 /* Optional: Responsive styling */
 @media (max-width: 768px) {
+    .pure-u-1-2 {
+        width: 100%; /* Make both columns full width on small screens */
+    }
+
     #symbol_map {
-        width: 95%;
-        height: 70%;
-        max-width: 100%; /* Ensure it fits within smaller screens */
+        width: 120%;
+        height: 60vh; /* Ensure the visualization adapts on small screens */
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
+

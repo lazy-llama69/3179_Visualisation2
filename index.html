@@ -10,23 +10,81 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <!-- <script src="main.js"></script> -->
     <link rel="stylesheet" href="css/style.css"> <!-- Link to your CSS file -->
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vega-Lite Graphs</title>
 </head>
 
 <body>
-    <h1>Tornadoes in Aus</h1>
+    <!-- <h1>Tornadoes in Aus</h1> -->
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>The "Happening" Weather in Australia</h1>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+
     <!-- <div id="bar_chart"></div> Bar chart container -->
     <!-- <div id="scatter_plot"></div> Scatter plot container -->
-    <div id="symbol_map"></div> <!-- Add this div -->
+    <!-- <div id="symbol_map"></div> Add this div -->
+    
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3"> <!-- Changed from 1-2 to 1-3 to take less space -->
+        <div class="description description-left">
+          <h2>The Two Columns Layout</h2>
+          <p>The ipsum opsum possium is the frigality of the penultimate catastrophe to ever occur to the human acylimatic patriarchy</p>
+        </div>
+      </div>
+      <div class="pure-u-2-3"> <!-- Changed from 1-2 to 2-3 to take more space -->
+        <div id="symbol_map" class="vis-container"></div>
+      </div>
+    </div>
+
+     <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div id="hail_map" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="description description-right">
+          <h2>First and Second Columns Combined</h2>
+          <p>The first and second columns are combined. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien
+            faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
     <script type="text/javascript">
 
-        var spec2 = "js/temp2.vg.json";
-        vegaEmbed('#symbol_map', spec2).then(function(result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-        d3.csv('https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv')
-        .then(data => console.log(data));
-      </script>
+      var spec2 = "js/temp2.vg.json";
+      var spec3 = "js/hail.vg.json";
+
+      vegaEmbed('#symbol_map', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+      // d3.csv('https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv')
+      // .then(data => console.log(data));
+
+      vegaEmbed('#hail_map', spec3).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    
+    </script>
 </body>
 
 </html>
