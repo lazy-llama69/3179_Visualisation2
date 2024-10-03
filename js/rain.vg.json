@@ -26,11 +26,11 @@
       "color": {
         "field": "Total precipitation",
         "type": "quantitative",
-        "scale": {"type": "linear", "domain": [1, 70000], "range": ["#f7fbff", "#08306b"]},
+        "scale": {"type": "linear", "domain": [1, 70000], "range": ["#fdbe85", "#7f0000"]},
         "title": "Total Rainfall (mm)"
       },
       "tooltip": [
-        {"field": "properties.NAME", "type": "nominal", "title": "State"},
+        {"field": "properties.NAME_1", "type": "nominal", "title": "State"},
         {"field": "Total precipitation", "type": "quantitative", "title": "Total Rainfall (mm)"}
       ]
     }

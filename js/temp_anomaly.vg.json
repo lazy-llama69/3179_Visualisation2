@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual Mean Temperature Anomaly in Australia (1910 to 2023) with a 9-year Running Average",
+  "data": {
+    "url": "./data/anomaly.csv",
+    "format": {"type": "csv"}
+  },
+  "width": 700,
+  "height": 400,
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year",
+            "labelAngle": -45,
+            "labelFontSize": 12,
+            "titleFontSize": 14,
+            "values": [1910, 1915, 1920, 1925, 1930, 1935, 1940, 1945, 1950, 1955, 1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020]
+          }
+        },
+        "y": {
+          "field": "Anomaly",
+          "type": "quantitative",
+          "axis": {
+            "title": "Mean Temperature Anomaly (°C)"
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Anomaly >= 0",
+            "value": "red"
+          },
+          "value": "blue"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "window": [{"op": "mean", "field": "Anomaly", "as": "RollingAverage"}],
+          "frame": [-4, 4]
+        }
+      ],
+      "mark": {"type": "line", "color": "black", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal"},
+        "y": {"field": "RollingAverage", "type": "quantitative"}
+      }
+    }
+  ],
+  "config": {
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.5,
+      "labelFontSize": 12,
+      "titleFontSize": 14
+    }
+  }
+}
