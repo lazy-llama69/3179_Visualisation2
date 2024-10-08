@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
     background-color: #fce4ec; /* Pastel pink for the entire page */
     display: flex;
     flex-direction: column;
@@ -24,12 +24,11 @@ h1 {
 }
 
 #symbol_map {
-    position: relative;
+    position: center;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 120%; /* Make it take more of the available width */
-    max-width: 900px; /* Reduce max-width to prevent the visualization from being too wide */
+    width: 99%; /* Make it take more of the available width */
     height: 530px; /* Set a fixed height */
     background-color: #fffde7;
     padding: 10px;
@@ -69,6 +68,36 @@ h1 {
 .pure-u-2-3 {
     flex-grow: 0.7; /* Make the right section grow less */
 }
+.waterspout-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: flex-start; /* Align items to the top */
+    margin: 20px 0; /* Add space above and below */
+}
+
+#watersprout_map {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 110%; /* Slightly larger width for visualization */
+    height: 100%; /* Fixed height for consistency */
+    background-color: #fffde7;
+    padding: 10px;
+    margin: 0 20px; /* Space between visualization and text */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Styling for the description on the right */
+.waterspout-container .description-right {
+    width: 80%; /* Width for the text container */
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    margin-left: 110px; /* Remove default margin */
+    margin-top: -25px
+}
+
 
 
 /* Optional: Responsive styling */
