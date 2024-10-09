@@ -16,8 +16,11 @@
         "max": 5,
         "step": 1,
         "name": "Minimum Magnitude (Fuji scale): "
+      
       }
+      
     }
+    
   ],
   "title": {
     "text": "Earthquakesss",
