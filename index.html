@@ -36,79 +36,91 @@
 
     <!-- Container for two visualizations and their respective descriptions -->
     <div class="pure-g">
-      <!-- First visualization and its description -->
-      <div class="pure-u-1-2">
-          <div id="symbol_map" class="vis-container"></div> <!-- First visualization -->
-          <div class="description description-left">
-              <h2>Description for First Visualization</h2>
-              <p>This is the description text for the first visualization. It explains the data and insights shown in this visualization.
-                Hola como estas compadre
-                Hola como estas compadre
-                Hola como estas compadre
-                Hola como estas compadre
-              </p>
-          </div>
-      </div>
+        <!-- First visualization and its description -->
+        <div class="pure-u-1-2">
+            <div id="symbol_map" class="vis-container">
+                <div id="symbol_map_vis"></div> 
+                <div class="description-right-inside">
+                <h2>Description for First Visualization</h2>
+                <p>This is the description text for the first visualization. It explains the data and insights shown in this visualization.
+                    Hola como estas compadre
+                    Hola como estas compadre
+                    Hola como estas compadre
+                    Hola como estas compadre
+                </p>
+                </div>
+            </div> 
+        </div>
+  
 
       <!-- Second visualization and its description -->
       <div class="pure-u-1-2">
-          <div id="hail_map" class="vis-container"></div> <!-- Second visualization -->
-          <div class="description description-second">
-              <h2>Description for Second Visualization</h2>
-              <p>This is the description text for the second visualization. It explains the context and insights shown in this visualization.
-                
-              </p>
-          </div>
+        <div id="hail_map" class="vis-container">
+            <div id="hail_map_vis"></div> 
+            <div class="description-right-inside">
+            <h2>Description for Second Visualization</h2>
+            <p>This is the description text for the second visualization. It explains the context and insights shown in this visualization.
+              Hola como estas compadre
+              Hola como estas compadre
+              Hola como estas compadre
+              Hola como estas compadre
+            </p>
+            </div>
+            
+        </div>
       </div>
     </div>
 
 
     <!-- Container for waterspout visualization and text description -->
     <div class="pure-g waterspout-container">
-        <!-- Waterspout visualization on the left -->
-        <div class="pure-u-1-2">
-            <div id="watersprout_map" class="vis-container"></div> <!-- Waterspout visualization -->
-        </div>
-
-        <!-- Text description on the right -->
-        <div class="pure-u-1-2">
-            <div class="description description-right">
-                <h2>Waterspout Visualization Description</h2>
-                <p>This is the description for the waterspout visualization. It provides insights and context related to the data being displayed.</p>
+      <div class="pure-u-1-1">
+          <div id="watersprout_map" class="vis-container">
+              <!-- Visualization on the left -->
+              <div id="watersprout_vis"></div>
+              
+              <!-- Description on the right inside the same container -->
+              <div class="description-right-inside">
+                  <h2>Waterspout Visualization Description</h2>
+                  <p>This is the description for the waterspout visualization. It provides insights and context related to the data being displayed.</p>
+              </div> 
             </div>
         </div>
-    </div>
+      </div>
 
 
-    <div class="container">
-      <div class="description-rain-left">
-        <h2>Left Text</h2>
-        <p>This is the text on the left side.</p>
-      </div>
-      <div class="vis-container">
-        <div id="rain_map"></div>
-      </div>
-      <div class="description-rain-right">
-        <h2>Right Text</h2>
-        <p>This is the text on the right side.</p>
-      </div>
-    </div>
 
-    <!-- Container for waterspout visualization and text description -->
-    <div class="pure-g waterspout-container">
-      <!-- Waterspout visualization on the left -->
+    <!-- Container for rain_map and anomaly_chart visualizations -->
+    <div class="pure-g">
+      <!-- Rain Map Visualization with its Description -->
       <div class="pure-u-1-2">
-          <div id="anomaly_chart" class="vis-container"></div> <!-- Waterspout visualization -->
-      </div>
-
-      <!-- Text description on the right -->
-      <div class="pure-u-1-2">
-          <div class="description description-right">
-              <h2>Waterspout Visualization Description</h2>
-              <p>This is NOT the waterspout visualisation description. It provides insights and context related to the data being displayed.</p>
+          <div id="rain_map_container" class="vis-container">
+              <!-- Visualization for Rain Map -->
+              <div id="rain_map"></div>
+              <!-- Description for Rain Map -->
+              <div class="description-rain-left">
+                  <h2>Rain Map Visualization Description</h2>
+                  <p>This is the text for the Rain Map visualization. It provides insights and context related to the data being displayed.</p>
+              </div>
           </div>
       </div>
-  </div>
+
+      <!-- Anomaly Chart Visualization -->
+      <div class="pure-u-1-2">
+          <div id="anomaly_chart_container" class="vis-container">
+              <!-- Visualization for Anomaly Chart -->
+              <div id="anomaly_chart"></div>
+              <!-- Description for Anomaly Chart -->
+              <div class="description-anomaly-right">
+                  <h2>Anomaly Chart Visualization Description</h2>
+                  <p>This is the text for the Anomaly Chart visualization. It provides insights and context related to the data being displayed.</p>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
 
 
     <script type="text/javascript">
@@ -119,17 +131,17 @@
       var spec5 = "js/rain.vg.json";
       var spec6 = "js/temp_anomaly.vg.json";
 
-      vegaEmbed('#symbol_map', spec2).then(function(result) {
+      vegaEmbed('#symbol_map_vis', spec2).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
       // d3.csv('https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv')
       // .then(data => console.log(data));
 
-      vegaEmbed('#hail_map', spec3).then(function(result) {
+      vegaEmbed('#hail_map_vis  ', spec3).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      vegaEmbed('#watersprout_map', spec4).then(function(result) {
+      vegaEmbed('#watersprout_vis', spec4).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     

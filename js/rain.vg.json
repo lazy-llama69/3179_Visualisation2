@@ -1,9 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Total Rainfall Across Australia",
-    "width": 1000,
-    "height": 400,
-    "projection": {"type": "mercator"},
+    "width": 770,
+    "height": 445,
+    "projection": {"type": "mercator",
+  "center": [130.0, -28.0],
+    "scale": 550,
+    "translate": [350, 200]},
     "data": {
       "url": "./js/ne_110m_jus_aus.json",
       "format": {"type": "topojson", "feature": "gadm41_AUS_1"}

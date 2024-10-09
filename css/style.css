@@ -24,202 +24,116 @@ h1 {
     top: 10px; /* Keep the title at the top */
 }
 
-#symbol_map {
+#symbol_map, #hail_map{
     position: relative;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 98%; /* Make it take more of the available width */
-    height: 530px; /* Set a fixed height */
-    background-color: #fffde7;
+    width: auto; /* Use full available width */
+    height: auto; /* Allow height to adjust based on content */
+    background-color: #fffde7; /* Yellow container background */
+    margin-left: 0px;
     padding: 10px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    margin-left: 10px; 
-}
-#hail_map {
-    position: relative;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: auto; /* Make it take more of the available width */
-    height: 530px; /* Set a fixed height */
-    background-color: #fffde7;
-    padding: 10px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    margin-left: 10px; 
-}
-.container {
     display: flex;
-    flex-direction: row; /* Arrange items horizontally */
-    justify-content: space-between; /* Create space between items */
-  }
-  
+    flex-direction: column; /* Align items vertically */
+    justify-content: flex-start; /* Align content at the top */
+    align-items: flex-start; /* Align content to the left */
+}
 
+#symbol_map h2, #symbol_map p, #hail_map h2, #hail_map p {
+    text-align: left;
+    width: 100%; /* Take the full width of the container */
+    margin-bottom: 0px; /* Add space between elements */
+    color: #333; /* Dark text color */
+    margin-left: -5px;
+    margin-top: 15px;
+    font-size: 20px;
+    
+}
 
+#symbol_map_vis, #hail_map_vis {
+    width: 100%; /* Ensure the visualization takes up the full width */
+    height: 500px; /* Set a fixed height for the visualization */
+    background: #fffde7; /* White background for visualization */
+    margin-bottom: 10px;
+}
 .vis-container {
     width: 100%;
 }
-
-.box{
-    flex-basis: 30%;
-    margin: 0 5px;
-    margin-left: 20px;
-    padding: 15px;
-    background-color: #efdf6b;
-    border: 1px solid #ccc;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    height: auto
-}
-.waterspout-container {
-    display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: flex-start; /* Align items to the top */
-    margin: 20px 0; /* Add space above and below */
-    
-
-}
-
 #watersprout_map {
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 110%; /* Slightly larger width for visualization */
-    height: 850px; /* Fixed height for consistency */
-    background-color: #fffde7;
-    padding: 10px;
-    margin: 0 20px; /* Space between visualization and text */
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    margin-left:10px;
-}
-
-/* Styling for the description on the right */
-.waterspout-container .description-right {
-    width: 81%; /* Width for the text container */
-    padding: 10px;
-    text-align: left; /* Align text to the left */
-    margin-left: 110px; /* Remove default margin */
-    margin-top: 0px;
-    background-color: #d2e7d6; /* Calm pastel yellow background */
-    border: 2px solid #d2e7d6; /* Light yellow border */
-    border-radius: 8px; /* Rounded corners for the description box */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-}
-.description-left {
-    width: 95%; /* Increase the width of the text container */
-    padding: 10px; /* Add padding for better readability */
-    text-align: left; /* Ensure the text is aligned to the left */
-    margin-top: 0px;
-    margin-left: 10px;
-    background-color: #d2e7d6; /* Calm pastel yellow background */
-    border: 2px solid #d2e7d6; /* Light yellow border */
-    border-radius: 8px; /* Rounded corners for the description box */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-}
-.description-right   {
-    width: 95%; /* Increase the width of the text container */
-    padding: 10px; /* Add padding for better readability */
-    text-align: left; /* Ensure the text is aligned to the left */
-    margin-top: 0px;
-    margin-left: 10px;
-    background-color: #d2e7d6; /* Calm pastel yellow background */
-    border: 2px solid #d2e7d6; /* Light yellow border */
-    border-radius: 8px; /* Rounded corners for the description box */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-}
-.description-second{
-    width: 92%; /* Increase the width of the text container */
-    padding: 10px; /* Add padding for better readability */
-    text-align: left; /* Ensure the text is aligned to the left */
-    margin-top: 0px;
-    margin-left: 10px;
-    background-color: #d2e7d6; /* Calm pastel yellow background */
-    border: 2px solid #d2e7d6; /* Light yellow border */
-    border-radius: 8px; /* Rounded corners for the description box */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-}
-
-.description {
-    padding: 10px;
-}
-
-.description-rain-left {
-    text-align: left;
-    width: 440px;
-    height: 430px;
-    margin-right: 10px;
-    background-color: #d2e7d6; /* Calm pastel yellow background */
-    border: 2px solid #d2e7d6; /* Light yellow border */
-    border-radius: 8px; /* Rounded corners for the description box */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-    padding: 10px
-  }
-
-.description-rain-right {
-    text-align: left;
-    width: 420px;
-    height: 430px;
-    margin-left: -45px;
-    background-color: #d2e7d6; /* Calm pastel yellow background */
-    border: 2px solid #d2e7d6; /* Light yellow border */
-    border-radius: 8px; /* Rounded corners for the description box */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-    padding: 10px;
-    margin-right: 30px;
-}
-  
-#rain_map {
     position: relative;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: auto; /* Make it take more of the available width */
-    height: auto; /* Set a fixed height */
-    background-color: #fffde7;
-    padding: 10px;
-    margin-right: -230px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    margin-left: 0px; 
-    margin-bottom: 0px;
+    width: auto; /* Full width of the container */
+    height: auto; /* Adjust height based on content */
+    background-color: #fffde7; /* Yellow background */
+    padding: 20px;
+    margin: 10px 0; /* Space above and below the container */
+    display: flex; /* Use flexbox to align items horizontally */
+    flex-direction: row; /* Horizontal alignment of items */
+    justify-content: flex-start; /* Space between visualization and text */
+    align-items: flex-start; /* Align items to the top */
 }
 
-.text-box {
-    flex-basis: 30%;
-    margin: 0 5px;
-    margin-left: 20px;
-    padding: 15px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    height: auto
+#watersprout_vis {
+    width: auto; /* Visualization takes up 70% of the container width */
+    height: auto; /* Set fixed height for visualization */
+    background: #fffde7; /* Yellow background */
 }
 
-#anomaly_chart{
-    position: left;
+.description-right-inside {
+    width: auto; /* Text description takes up 30% of the container width */
+    padding: 0px 20px 20px 20px; /* Remove top padding by setting the first value to 0 */
+    text-align: left; /* Align text to the left */
+    background-color: #d2e7d6; /* Light green background */
+    border: 2px solid #d2e7d6;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    margin-left: 10px; /* Space between visualization and text */
+    margin-top: 0px; /* Remove any top margin */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Align elements vertically */
+    justify-content: flex-start; /* Stick content to the top */
+
+}
+
+
+
+/* Container styles for rain_map and anomaly_chart visualizations */
+#rain_map_container, #anomaly_chart_container {
+    position: relative;
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: auto; /* Make it take more of the available width */
-    height: auto; /* Set a fixed height */
-    background-color: #fffde7;
+    width: 900px;
+    height: 600px;
+    background-color: #fffde7; /* Yellow container background */
     padding: 10px;
-    margin-right: -260px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    margin-left: 0; 
-    margin-bottom: 10px;
+    margin: 0px 0;
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.description-rain-left {
+    width: 870px; /* Full width of the container */
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    margin-top: auto; /* Margin to separate from visualization */
+    background-color: #d2e7d6; /* Light green background */
+    border: 2px solid #d2e7d6;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.description-anomaly-right {
+    width: 870px; /* Full width of the container */
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    margin-top: auto; /* Margin to separate from visualization */
+    background-color: #d2e7d6; /* Light green background */
+    border: 2px solid #d2e7d6;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
 }

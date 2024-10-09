@@ -5,10 +5,10 @@
     },
     "vconcat": [
       {
-        "width": 849,
-        "height": 400,
+        "width":900,
+        "height": 380,
         "title": "Waterspout Duration and Location in Australia (2000-2021)",
-        "projection": { "type": "mercator", "center": [135.0, -10.0], "scale": 550 },
+        "projection": { "type": "mercator", "center": [80, -10.0], "scale": 550 },
         "layer": [
           {
             "data": { "sphere": true },
@@ -68,7 +68,7 @@
         ]
       },
       {
-        "width": 849,
+        "width": 1000,
         "height": 60,
         "mark": "line",
         "title": "Use this line chart to filter out the data based on time",
@@ -93,7 +93,8 @@
         }
       },
       {
-        "width": 849,
+        "width": 1000,
+        "height":60,
         "mark": "area",
         "transform": [
           { "filter": { "param": "time_brush" } }
