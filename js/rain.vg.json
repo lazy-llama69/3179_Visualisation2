@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total Rainfall Across Australia",
+    "width": 1000,
+    "height": 400,
+    "projection": {"type": "mercator"},
+    "data": {
+      "url": "./js/ne_110m_jus_aus.json",
+      "format": {"type": "topojson", "feature": "gadm41_AUS_1"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.NAME_1",
+        "from": {
+          "data": {
+            "url": "./data/rain.csv",
+            "format": {"type": "csv"}
+          },
+          "key": "State",
+          "fields": ["Total precipitation"]
+        }
+      }
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "Total precipitation",
+        "type": "quantitative",
+        "scale": {"type": "linear", "domain": [1, 70000], "range": ["#fdbe85", "#7f0000"]},
+        "title": "Total Rainfall (mm)"
+      },
+      "tooltip": [
+        {"field": "properties.NAME_1", "type": "nominal", "title": "State"},
+        {"field": "Total precipitation", "type": "quantitative", "title": "Total Rainfall (mm)"}
+      ]
+    }
+  }
+  
