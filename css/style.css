@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif, sans-serif;
-    background-color: #f9edf1; /* Pastel pink for the entire page */
+    background-color: #fffdea; /* Pastel pink for the entire page */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +12,10 @@ body {
     width: auto;
 }
 
+
+.pure-g{
+    gap: 5px; /* Adds 10px spacing between the child elements */
+}
 /* Use a more specific selector to target the h1 */
 body h1 {
     font-size: 60px;
@@ -23,8 +27,8 @@ body h1 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: auto; /* Use full available width */
     height: auto; /* Allow height to adjust based on content */
-    background-color: #fffde7; /* Yellow container background */
-    margin-left: 0px;
+    background-color: #fffef7; /* Yellow container background */
+    margin-top: 0px;    
     padding: 10px;
     display: flex;
     flex-direction: column; /* Align items vertically */
@@ -42,15 +46,21 @@ body h1 {
     font-size: 20px;
     
 }
-
 #symbol_map_vis, #hail_map_vis {
     width: 100%; /* Ensure the visualization takes up the full width */
     height: 500px; /* Set a fixed height for the visualization */
-    background: #fffde7; /* White background for visualization */
-    margin-bottom: 10px;
+    background: #fffef7; /* White background for visualization */
+    margin-bottom: 0px;
 }
+
+.description-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Space between the two description boxes */
+}
+
 .vis-container {
-    width: 100%;
+    width: 10px;
 }
 #watersprout_map {
     position: relative;
@@ -59,9 +69,9 @@ body h1 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: auto; /* Full width of the container */
     height: auto; /* Adjust height based on content */
-    background-color: #fffde7; /* Yellow background */
+    background-color: #fffef3; /* Yellow background */
     padding: 20px;
-    margin: 10px 0; /* Space above and below the container */
+    margin: 5px 0; /* Space above and below the container */
     display: flex; /* Use flexbox to align items horizontally */
     flex-direction: row; /* Horizontal alignment of items */
     justify-content: flex-start; /* Space between visualization and text */
@@ -71,19 +81,19 @@ body h1 {
 #watersprout_vis {
     width: auto; /* Visualization takes up 70% of the container width */
     height: auto; /* Set fixed height for visualization */
-    background: #fffde7; /* Yellow background */
+    background: #fffef3; /* Yellow background */
 }
 
 .description-right-inside {
     width: auto; /* Text description takes up 30% of the container width */
     padding: 0px 20px 20px 20px; /* Remove top padding by setting the first value to 0 */
     text-align: left; /* Align text to the left */
-    background-color: #d2e7d6; /* Light green background */
+    background-color: #eff9f1; /* Light green background */
     border: 1px solid #000000;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-    margin-left: 10px; /* Space between visualization and text */
-    margin-top: 0px; /* Remove any top margin */
+    margin-left: 0px; /* Space between visualization and text */
+    margin-top: 10px; /* Remove any top margin */
     display: flex; /* Use flexbox for alignment */
     flex-direction: column; /* Align elements vertically */
     justify-content: flex-start; /* Stick content to the top */
@@ -100,7 +110,7 @@ body h1 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: 900px;
     height: 600px;
-    background-color: #fffde7; /* Yellow container background */
+    background-color: #fffef3; /* Yellow container background */
     padding: 10px;
     margin: 0px 0;
     display: flex;
@@ -128,4 +138,8 @@ body h1 {
     border: 1px solid #000000;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.pure-u-1-2, .pure-u-12-24 {
+    width: 920px !important;
 }

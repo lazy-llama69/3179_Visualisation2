@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 850,
+    "width": 900,
     "height": 480,
     "autosize": {
       "type": "fit",
@@ -20,14 +20,14 @@
           }
         ],
     "title": {
-      "text": "Hail map",
+      "text": "Hail Activity since 1900",
       "fontSize": 18,
-      "font": "Arial",
-      "anchor": "start",
+      "font": "Helvetica",
+      "anchor": "middle",
       "dy": -10
     },
     "config": {
-      "background": "#fffde7"
+      "background": "#fffef7"
     },
     "projection": {
       "type": "mercator",
@@ -39,7 +39,7 @@
         "data": {"sphere": true},
         "mark": {
           "type": "geoshape",
-          "fill": "#dcecff"
+          "fill": "#e8f2ff"
         }
       },
       {
@@ -57,7 +57,7 @@
         },
         "mark": {
           "type": "geoshape",
-          "fill": "#d7ccc8",
+          "fill": "#d0b8ac",
           "stroke": "#ffffff"
         }
       },

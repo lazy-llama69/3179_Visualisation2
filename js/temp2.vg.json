@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 850,
+  "width": 900,
   "height": 480,
   "autosize": {
     "type": "fit",
@@ -13,7 +13,7 @@
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 5,
+        "max": 3,
         "step": 1,
         "name": "Minimum Magnitude (Fuji scale): "
       
@@ -23,18 +23,18 @@
     
   ],
   "title": {
-    "text": "Earthquakesss",
+    "text": "Seismic Activity since 1900",
     "fontSize": 18,
-    "font": "Arial",
-    "anchor": "start",
+    "font": "Helvetica",
+    "anchor": "middle",
     "dy": -10
   },
   "config": {
-    "background": "#fffde7"
+    "background": "#fffef7"
   },
   "projection": {
     "type": "mercator",
-    "center": [135.0, -28.0],
+    "center": [130.0, -27.0],
     "scale": 550,
     "translate": [350, 200]
   },
@@ -43,7 +43,7 @@
       "data": { "sphere": true },
       "mark": {
         "type": "geoshape",
-        "fill": "#dcecff"
+        "fill": "#e8f2ff"
       }
     },
     {
@@ -61,7 +61,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#d7ccc8",
+        "fill": "#d0b8ac",
         "stroke": "#ffffff"
       }
     },
@@ -108,8 +108,7 @@
           "value": 0.8
         },
         "tooltip": [
-          { "field": "longitude", "type": "quantitative", "title": "Longitude" },
-          { "field": "latitude", "type": "quantitative", "title": "Latitude" },
+          { "field": "State", "type": "nominal", "title": "State" },
           { "field": "Fujita scale", "type": "quantitative", "title": "Magnitude (Fuji scale)" },
           { "field": "Max speed (km/h)", "type": "quantitative", "title": "Max speed (km/h)" }
         ]
@@ -135,8 +134,11 @@
           "filter": "datum['Fujita scale'] >= 3"  
         },
         {
-          "calculate": "'Magnitude: ' + datum['Fujita scale'] + ', Max Speed: ' + datum['Max speed (km/h)'] ",
+          "calculate": "'Magnitude: ' + datum['Fujita scale'] + ', Max Speed: ' + datum['Max speed (km/h)'] +'km/h' ",
           "as": "customAnnotation"
+        },
+        {
+          "filter": "Magnitude_filter == 3"  
         }
       ],
       "mark": {

@@ -40,15 +40,30 @@
         <div class="pure-u-1-2">
             <div id="symbol_map" class="vis-container">
                 <div id="symbol_map_vis"></div> 
-                <div class="description-right-inside">
-                <h2>Description for First Visualization</h2>
-                <p>This is the description text for the first visualization. It explains the data and insights shown in this visualization.
-                    Hola como estas compadre
-                    Hola como estas compadre
-                    Hola como estas compadre
-                    Hola como estas compadre
-                </p>
-                </div>
+                <div class="description-container">
+            
+                  <!-- Original description box -->
+                  <div class="description-right-inside">
+                    <h2>Unveiling Australia's Seismic Story</h2>
+                    <p>
+                      Australia, known for its stunning landscapes and diverse ecosystems, 
+                      has an intriguing tale beneath its surface-the story of earthquakes. 
+                      These seismic events, often mild, play a crucial role in shaping the continent's geological character. 
+                      The highest recorded earthquake magnitude in Australia is <span style="color: #c22038;">3</span> on the Fuji scale, 
+                      primarily in <span style="color: #d37382;">New South Wales</span> and <span style="color: #d8b85f;">Queensland</span>
+                    </p>
+                  </div>
+                  <div class="description-right-inside">
+                      <h2>Understanding the Patterns and Impacts</h2>
+                      <p>While these tremors may seem small compared to global standards, 
+                        they remind us of the dynamic forces at work beneath our feet. Historically, 
+                        Australia has experienced fluctuations in seismic activity, 
+                        with certain areas showing a higher frequency of earthquakes. 
+                        Understanding these patterns helps prepare communities for future seismic events.
+                      </p>
+                  </div>
+              </div>
+                
             </div> 
         </div>
   
@@ -57,15 +72,29 @@
       <div class="pure-u-1-2">
         <div id="hail_map" class="vis-container">
             <div id="hail_map_vis"></div> 
-            <div class="description-right-inside">
-            <h2>Description for Second Visualization</h2>
-            <p>This is the description text for the second visualization. It explains the context and insights shown in this visualization.
-              Hola como estas compadre
-              Hola como estas compadre
-              Hola como estas compadre
-              Hola como estas compadre
-            </p>
-            </div>
+            <div class="description-container">
+            
+              <!-- Original description box -->
+              <div class="description-right-inside">
+                <h2>Unveiling Australia's Seismic Story</h2>
+                <p>
+                  Australia, known for its stunning landscapes and diverse ecosystems, 
+                  has an intriguing tale beneath its surface-the story of earthquakes. 
+                  These seismic events, often mild, play a crucial role in shaping the continent's geological character. 
+                  The highest recorded earthquake magnitude in Australia is <span style="color: #c22038;">3</span> on the Fuji scale, 
+                  primarily in <span style="color: #d37382;">New South Wales</span> and <span style="color: #d8b85f;">Queensland</span>
+                </p>
+              </div>
+              <div class="description-right-inside">
+                  <h2>Understanding the Patterns and Impacts</h2>
+                  <p>While these tremors may seem small compared to global standards, 
+                    they remind us of the dynamic forces at work beneath our feet. Historically, 
+                    Australia has experienced fluctuations in seismic activity, 
+                    with certain areas showing a higher frequency of earthquakes. 
+                    Understanding these patterns helps prepare communities for future seismic events.
+                  </p>
+              </div>
+          </div>
             
         </div>
       </div>
@@ -131,25 +160,25 @@
       var spec5 = "js/rain.vg.json";
       var spec6 = "js/temp_anomaly.vg.json";
 
-      vegaEmbed('#symbol_map_vis', spec2).then(function(result) {
+      vegaEmbed('#symbol_map_vis', spec2, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
       // d3.csv('https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv')
       // .then(data => console.log(data));
 
-      vegaEmbed('#hail_map_vis  ', spec3).then(function(result) {
+      vegaEmbed('#hail_map_vis  ', spec3, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      vegaEmbed('#watersprout_vis', spec4).then(function(result) {
+      vegaEmbed('#watersprout_vis', spec4, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     
-      vegaEmbed('#rain_map', spec5).then(function(result) {
+      vegaEmbed('#rain_map', spec5, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      vegaEmbed('#anomaly_chart', spec6).then(function(result) {
+      vegaEmbed('#anomaly_chart', spec6, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     </script>
