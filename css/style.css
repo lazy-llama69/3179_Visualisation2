@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     background-color: #fffdea; /* Pastel pink for the entire page */
     display: flex;
     flex-direction: column;
@@ -18,7 +18,9 @@ body {
 }
 /* Use a more specific selector to target the h1 */
 body h1 {
-    font-size: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    
 }
 #symbol_map, #hail_map{
     position: relative;

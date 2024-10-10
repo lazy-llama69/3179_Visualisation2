@@ -20,7 +20,7 @@
           }
         ],
     "title": {
-      "text": "Hail Activity since 1900",
+      "text": "Hailstorm Activity since 2010",
       "fontSize": 18,
       "font": "Helvetica",
       "anchor": "middle",
@@ -82,7 +82,7 @@
           }
         ],
         "mark": {
-          "type": "point",
+          "type": "circle",
           "tooltip": true
         },
         "encoding": {
@@ -98,7 +98,7 @@
             "field": "Duration",
             "type": "quantitative",
             "title": "Duration in mins",
-            "scale": {"scheme": "redblue", "domain": [0, 160]}
+            "scale": {"scheme": "blueorange", "domain": [0, 160]}
           },
           "opacity": {
             "value": 0.8
