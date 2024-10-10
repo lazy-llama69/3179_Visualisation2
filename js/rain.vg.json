@@ -1,41 +1,71 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total Rainfall Across Australia",
-    "width": 770,
+    "title": {
+      "text": "Australia's Precipitation Patterns: A Choropleth Exploration",
+    "fontSize": 28,
+          "font": "Helvetica",
+          "anchor": "start",
+          "dx": 0
+    },
+    "config": {
+    "background": "#fffef7"
+    },
+    "width": 740,
     "height": 445,
     "projection": {"type": "mercator",
-  "center": [130.0, -28.0],
+    "center": [130.0, -28.0],
     "scale": 550,
     "translate": [350, 200]},
-    "data": {
+    "layer": [ 
+      {
+        "data": { "sphere": true },
+        "mark": {
+          "type": "geoshape",
+          "fill": "#e8f2ff"
+        }
+      },
+    {
+      "data": { "graticule": true },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ccc",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
       "url": "./js/ne_110m_jus_aus.json",
       "format": {"type": "topojson", "feature": "gadm41_AUS_1"}
-    },
-    "transform": [
-      {
-        "lookup": "properties.NAME_1",
-        "from": {
-          "data": {
-            "url": "./data/rain.csv",
-            "format": {"type": "csv"}
-          },
-          "key": "State",
-          "fields": ["Total precipitation"]
+      },
+      "transform": [
+        {
+          "lookup": "properties.NAME_1",
+          "from": {
+            "data": {
+              "url": "./data/rain.csv",
+              "format": {"type": "csv"}
+            },
+            "key": "State",
+            "fields": ["Normalized Precipitation"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "Normalized Precipitation",
+          "type": "quantitative",
+          "scale": {"type": "linear", "domain": [0, 0.06], "range": ["#fdbe85", "#7f0000"]},
+          "title": "Total Rainfall (mm/km^2))"
+        },
+        "tooltip": [
+          {"field": "properties.NAME_1", "type": "nominal", "title": "State"},
+          {"field": "Normalized Precipitation", "type": "quantitative", "title": "Total Rainfall (per km²)"}
+          ]
         }
       }
-    ],
-    "mark": {"type": "geoshape"},
-    "encoding": {
-      "color": {
-        "field": "Total precipitation",
-        "type": "quantitative",
-        "scale": {"type": "linear", "domain": [1, 70000], "range": ["#fdbe85", "#7f0000"]},
-        "title": "Total Rainfall (mm)"
-      },
-      "tooltip": [
-        {"field": "properties.NAME_1", "type": "nominal", "title": "State"},
-        {"field": "Total precipitation", "type": "quantitative", "title": "Total Rainfall (mm)"}
-      ]
-    }
+
+    ]
+    
   }
   

@@ -44,7 +44,7 @@
               "scale": {
                 "type": "threshold",
                 "domain": [0, 5, 10, 15, 20],
-                "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
+                "range":  ["#ade8f4", "#48cae4", "#00b4d8", "#0077b6", "#03045e"]
               }
             },
             "size": {
@@ -62,7 +62,8 @@
           },
           "layer": [
             { 
-              "mark": { "type": "circle", "opacity": 0.4 } 
+              "mark": { "type": "circle", "opacity": 0.4 }
+      
             },
             {
               "transform": [
@@ -132,7 +133,7 @@
           "field": "Duration",
           "type": "quantitative",
           "scale": {
-            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
+            "range": ["#ade8f4", "#48cae4", "#00b4d8", "#0077b6", "#03045e"]
           },
           "legend": null
         }

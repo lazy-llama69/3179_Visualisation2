@@ -22,7 +22,7 @@ body h1 {
     font-size: 50px;
     
 }
-#symbol_map, #hail_map{
+#symbol_map, #hail_map, #rain_map_container, #anomaly_chart_container{
     position: relative;
     border: 1px solid #000000;
     border-radius: 10px;
@@ -44,7 +44,7 @@ body h1 {
     margin-right: 2px;
 }
 
-#symbol_map h2, #symbol_map p, #hail_map h2, #hail_map p, #watersprout_map h2, #watersprout_map p{
+#symbol_map h2, #symbol_map p, #hail_map h2, #hail_map p, #watersprout_map h2, #watersprout_map p, #rain_map_container h2, #rain_map_container p, #anomaly_chart_container h2, #anomaly_chart_container p{
     text-align: left;
     width: 100%; /* Take the full width of the container */
     margin-bottom: 0px; /* Add space between elements */
@@ -54,7 +54,7 @@ body h1 {
     font-size: 20px;
     
 }
-#symbol_map_vis, #hail_map_vis {
+#symbol_map_vis, #hail_map_vis,#rain_map_vis {
     width: 100%; /* Ensure the visualization takes up the full width */
     height: 500px; /* Set a fixed height for the visualization */
     background: #fffef7; /* White background for visualization */
@@ -116,48 +116,6 @@ body h1 {
     justify-content: flex-start; /* Align to the top */
     width: auto; /* Adjust width as needed */
 }
-
-
-
-
-/* Container styles for rain_map and anomaly_chart visualizations */
-#rain_map_container, #anomaly_chart_container {
-    position: relative;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 900px;
-    height: 600px;
-    background-color: #fffef3; /* Yellow container background */
-    padding: 10px;
-    margin: 0px 0;
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-.description-rain-left {
-    width: 870px; /* Full width of the container */
-    padding: 10px;
-    text-align: left; /* Align text to the left */
-    margin-top: auto; /* Margin to separate from visualization */
-    background-color: #d2e7d6; /* Light green background */
-    border: 1px solid #000000;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-}
-
-.description-anomaly-right {
-    width: 870px; /* Full width of the container */
-    padding: 10px;
-    text-align: left; /* Align text to the left */
-    margin-top: auto; /* Margin to separate from visualization */
-    background-color: #d2e7d6; /* Light green background */
-    border: 1px solid #000000;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-}
-
 .pure-u-1-2, .pure-u-12-24 {
     width: 920px !important;
 }
