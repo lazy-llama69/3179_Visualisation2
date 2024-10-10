@@ -37,8 +37,14 @@ body h1 {
     justify-content: flex-start; /* Align content at the top */
     align-items: flex-start; /* Align content to the left */
 }
+#symbol_map{
+    margin-left: 2px;
+}
+#hail_map{
+    margin-right: 2px;
+}
 
-#symbol_map h2, #symbol_map p, #hail_map h2, #hail_map p {
+#symbol_map h2, #symbol_map p, #hail_map h2, #hail_map p, #watersprout_map h2, #watersprout_map p{
     text-align: left;
     width: 100%; /* Take the full width of the container */
     margin-bottom: 0px; /* Add space between elements */
@@ -71,19 +77,21 @@ body h1 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: auto; /* Full width of the container */
     height: auto; /* Adjust height based on content */
-    background-color: #fffef3; /* Yellow background */
+    background-color: #fffef7; /* Yellow background */
     padding: 20px;
     margin: 5px 0; /* Space above and below the container */
     display: flex; /* Use flexbox to align items horizontally */
     flex-direction: row; /* Horizontal alignment of items */
     justify-content: flex-start; /* Space between visualization and text */
     align-items: flex-start; /* Align items to the top */
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #watersprout_vis {
     width: auto; /* Visualization takes up 70% of the container width */
     height: auto; /* Set fixed height for visualization */
-    background: #fffef3; /* Yellow background */
+    background: #fffef7; /* Yellow background */
 }
 
 .description-right-inside {
@@ -101,6 +109,14 @@ body h1 {
     justify-content: flex-start; /* Stick content to the top */
 
 }
+
+.description2-container {
+    display: flex;
+    flex-direction: column; /* Stack descriptions vertically */
+    justify-content: flex-start; /* Align to the top */
+    width: auto; /* Adjust width as needed */
+}
+
 
 
 

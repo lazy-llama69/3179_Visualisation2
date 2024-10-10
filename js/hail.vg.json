@@ -21,10 +21,10 @@
         ],
     "title": {
       "text": "Hailstorm Activity since 2010",
-      "fontSize": 18,
-      "font": "Helvetica",
-      "anchor": "middle",
-      "dy": -10
+      "fontSize": 28,
+          "font": "Helvetica",
+          "anchor": "start",
+          "dx": 0
     },
     "config": {
       "background": "#fffef7"
@@ -104,11 +104,10 @@
             "value": 0.8
           },
           "tooltip": [
-            {"field": "longitude", "type": "quantitative", "title": "Longitude"},
-            {"field": "latitude", "type": "quantitative", "title": "Latitude"},
+            {"field": "State", "type": "nominal", "title": "State"},
             {"field": "Hail size", "type": "quantitative", "title": "Hail size (cm)"},
-            {"field": "Duration", "type": "quantitative", "title": "Duration in mins"},
-            {"field": "State", "type": "nominal", "title": "State"}
+            {"field": "Duration", "type": "quantitative", "title": "Duration(mins)"}
+            
           ]
         }
       },

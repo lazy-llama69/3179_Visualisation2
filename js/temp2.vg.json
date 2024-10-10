@@ -24,10 +24,10 @@
   ],
   "title": {
     "text": "Seismic Activity since 2010",
-    "fontSize": 18,
-    "font": "Helvetica",
-    "anchor": "middle",
-    "dy": -10
+    "fontSize": 28,
+          "font": "Helvetica",
+          "anchor": "start",
+          "dx": 0
   },
   "config": {
     "background": "#fffef7"

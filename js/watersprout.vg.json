@@ -1,127 +1,146 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-      "url": "./data/waterspout.csv"
-    },
-    "vconcat": [
-      {
-        "width":900,
-        "height": 380,
-        "title": "Waterspout Duration and Location in Australia (2000-2021)",
-        "projection": { "type": "mercator", "center": [80, -10.0], "scale": 550 },
-        "layer": [
-          {
-            "data": { "sphere": true },
-            "mark": { "type": "geoshape", "fill": "#dcecff" }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "./data/waterspout.csv"
+  },
+  "vconcat": [
+    {
+      "width": 900,
+      "height": 380,
+      "title": {"text": "Waterspouts Activity since 2000",
+            "fontSize": 30,
+          "font": "Helvetica",
+          "anchor": "start",
+          "dx": 0,
+          "dy": -10
+  
+      },
+      "projection": { "type": "mercator", "center": [80, -10.0], "scale": 550 },
+      "layer": [
+        {
+          "data": { "sphere": true },
+          "mark": { "type": "geoshape", "fill": "#e8f2ff" }
+        },
+        {
+          "data": { "graticule": true },
+          "mark": { "type": "geoshape", "stroke": "#ccc", "strokeWidth": 0.5 }
+        },
+        {
+          "data": {
+            "url": "./js/ne_110m_jus_aus.json",
+            "format": { "type": "topojson", "feature": "gadm41_AUS_1" }
           },
-          {
-            "data": { "graticule": true },
-            "mark": { "type": "geoshape", "stroke": "#ccc", "strokeWidth": 0.5 }
-          },
-          {
-            "data": {
-              "url": "./js/ne_110m_jus_aus.json",
-              "format": { "type": "topojson", "feature": "gadm41_AUS_1" }
-            },
-            "mark": { "type": "geoshape", "fill": "#d7ccc8", "stroke": "white" }
-          },
-          {
-            "transform": [{ "filter": { "param": "time_brush" } }],
-            "encoding": {
-              "longitude": { "field": "Longitude", "type": "quantitative" },
-              "latitude": { "field": "Latitude", "type": "quantitative" },
-              "color": {
-                "field": "Duration",
-                "type": "quantitative",
-                "title": "Duration (minutes)",
-                "scale": {
-                  "type": "threshold",
-                  "domain": [0, 5, 10, 15, 20],
-                  "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
-                }
-              },
-              "tooltip": [
-                { "field": "Duration", "type": "quantitative" },
-                { "field": "State", "type": "nominal" }
-              ]
-            },
-            "layer": [
-              { "mark": { "type": "circle", "opacity": 0.4, "size": 15 } },
-              {
-                "transform": [
-                  { "window": [{ "op": "rank", "as": "ranking" }], "sort": [{ "field": "Duration", "order": "descending" }] },
-                  { "filter": "datum.ranking == 1" },
-                  { "calculate": "'The worst waterspout of the selected period: ' + datum['Duration'] + ' minutes'", "as": "text_annotation" }
-                ],
-                "mark": {
-                  "type": "text",
-                  "align": "right",
-                  "dx": -8,
-                  "dy": -8,
-                  "baseline": "middle",
-                  "fontStyle": "italic"
-                },
-                "encoding": { "text": { "field": "text_annotation" } }
+          "mark": { "type": "geoshape", "fill": "#d0b8ac", "stroke": "white" }
+        },
+        {
+          "transform": [{ "filter": { "param": "time_brush" } }],
+          "encoding": {
+            "longitude": { "field": "Longitude", "type": "quantitative" },
+            "latitude": { "field": "Latitude", "type": "quantitative" },
+            "color": {
+              "field": "Duration",
+              "type": "quantitative",
+              "title": "Duration (minutes)",
+              "scale": {
+                "type": "threshold",
+                "domain": [0, 5, 10, 15, 20],
+                "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
               }
-            ]
-          }
-        ]
-      },
-      {
-        "width": 1000,
-        "height": 60,
-        "mark": "line",
-        "title": "Use this line chart to filter out the data based on time",
-        "params": [
-          {
-            "name": "time_brush",
-            "select": { "type": "interval", "encodings": ["x"] }
-          }
-        ],
-        "encoding": {
-          "x": {
-            "field": "Date/Time",
-            "type": "temporal",
-            "timeUnit": "yearmonth",
-            "axis": { "title": "Year and Month", "format": "%b %Y" }
-          },
-          "y": {
-            "aggregate": "count",
-            "axis": { "tickCount": 3, "grid": false },
-            "title": "Number of Events"
-          }
-        }
-      },
-      {
-        "width": 1000,
-        "height":60,
-        "mark": "area",
-        "transform": [
-          { "filter": { "param": "time_brush" } }
-        ],
-        "encoding": {
-          "x": {
-            "field": "Date/Time",
-            "type": "temporal",
-            "timeUnit": "yearmonth",
-            "scale": { "domain": { "param": "time_brush" } },
-            "axis": { "title": "Month and Year", "format": "%b %Y", "tickCount": 5, "grid": false }
-          },
-          "y": { "aggregate": "count", "title": "Count of Waterspouts" },
-          "color": {
-            "field": "Duration",
-            "type": "quantitative",
-            "scale": {
-              "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
             },
-            "legend": null
-          }
+            "size": {
+              "field": "Number of Spouts",
+              "type": "quantitative",
+              "title": "Number of Spouts",
+              "scale": {"range": [50, 1000]}  
+            },
+            "tooltip": [
+              { "field": "State", "type": "nominal" },
+              { "field": "Number of Spouts", "type": "quantitative", "title": "Number of Spouts" },
+              { "field": "Duration", "type": "quantitative", "title": "Duration(mins)" }
+              
+            ]
+          },
+          "layer": [
+            { 
+              "mark": { "type": "circle", "opacity": 0.4 } 
+            },
+            {
+              "transform": [
+                { "window": [{ "op": "rank", "as": "ranking" }], "sort": [{ "field": "Duration", "order": "descending" }] },
+                { "filter": "datum.ranking == 1" },
+                { "calculate": "'Worst waterspout of the selected period: ' + datum['Duration'] + ' minutes'", "as": "text_annotation" }
+              ],
+              "mark": {
+                "type": "square",
+                "align": "right",
+                "dx": -8,
+                "dy": -8,
+                "baseline": "middle",
+                "fontStyle": "italic",
+                "color": "black",
+                "fontSize": 11        
+            
+              },
+              "encoding": { "text": { "field": "text_annotation"} }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1000,
+      "height": 60,
+      "mark": "line",
+      "title": "Use this line chart to filter out the data based on time",
+      "params": [
+        {
+          "name": "time_brush",
+          "select": { "type": "interval", "encodings": ["x"] }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "Date/Time",
+          "type": "temporal",
+          "timeUnit": "yearmonth",
+          "axis": { "title": "Year and Month", "format": "%b %Y" }
+        },
+        "y": {
+          "aggregate": "count",
+          "axis": { "tickCount": 3, "grid": false },
+          "title": "Number of Events"
         }
       }
-    ],
-    "config": { 
-      "title": { "font": "sans-serif", "fontSize": 14 },
-      "background": "#fffde7"
+    },
+    {
+      "width": 1000,
+      "height": 80,
+      "mark": "area",
+      "transform": [
+        { "filter": { "param": "time_brush" } }
+      ],
+      "encoding": {
+        "x": {
+          "field": "Date/Time",
+          "type": "temporal",
+          "timeUnit": "yearmonth",
+          "scale": { "domain": { "param": "time_brush" } },
+          "axis": { "title": "Month and Year", "format": "%b %Y", "tickCount": 5, "grid": false }
+        },
+        "y": { "aggregate": "count", "title": "Count of Waterspouts" },
+        "color": {
+          "field": "Duration",
+          "type": "quantitative",
+          "scale": {
+            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#bd0026", "#7f0000"]
+          },
+          "legend": null
+        }
+      }
     }
+  ],
+  "config": { 
+    "title": { "font": "sans-serif", "fontSize": 14 },
+    "background": "#fffef7"
   }
-  
+}
