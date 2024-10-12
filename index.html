@@ -59,7 +59,7 @@
                   <div class="description-right-inside">
                       <h2>Understanding the Patterns and Impacts</h2>
                       <p>While these <span style="color: #d7a685;">tremors</span> may seem small compared to global standards, 
-                        they remind us of the dynamic forces at work beneath our feet. Historically, 
+                        they remind us of the dynamic forces at work beneath our feet.
                         Australia has experienced fluctuations in seismic activity, 
                         with certain areas showing a higher frequency of earthquakes. 
                         Understanding these patterns helps prepare communities for future seismic events.
@@ -79,7 +79,7 @@
             
               <!-- Original description box -->
               <div class="description-right-inside">
-                <h2>❄️Hailstorms❄️</h2>
+                <h2>Hailstorms: Facts & Records</h2>
                 <p>
                   Australia, known for its <strong>unpredictable</strong> weather, 
                   experiences severe hailstorms that can significantly impact both the environment and communities. 
@@ -91,7 +91,7 @@
                 </p>
               </div>
               <div class="description-right-inside">
-                  <h2>Hailstorms: Nature's Ice Pellets in Action!</h2>
+                  <h2>Nature's Ice Pellets in Action!</h2>
                   <p>
                     Hailstorms in Australia are a thrilling display of nature's power! 
                     These icy wonders form during warm months when strong updrafts lift moisture high into the sky, 
@@ -255,7 +255,9 @@
       var spec4 = "js/watersprout.vg.json";
       var spec5 = "js/rain.vg.json";
       var spec6 = "js/temp_anomaly.vg.json";
-
+      window.onload = function() {
+        document.body.style.zoom = "80%"; 
+      };
       vegaEmbed('#symbol_map_vis', spec2, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
