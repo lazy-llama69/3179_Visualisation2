@@ -7,9 +7,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: auto;
-    width: auto;
+    width: 1157;
 }
 
 
@@ -37,12 +37,13 @@ body h1 {
     justify-content: flex-start; /* Align content at the top */
     align-items: flex-start; /* Align content to the left */
 }
-#symbol_map{
-    margin-left: 2px;
+#symbol_map, #rain_map_container{
+    margin-left: -22px;
 }
-#hail_map{
-    margin-right: 2px;
+#hail_map, #anomaly_chart_container{
+    margin-right:-22px;
 }
+
 
 #symbol_map h2, #symbol_map p, #hail_map h2, #hail_map p, #watersprout_map h2, #watersprout_map p, #rain_map_container h2, #rain_map_container p, #anomaly_chart_container h2, #anomaly_chart_container p{
     text-align: left;
@@ -67,9 +68,10 @@ body h1 {
 }
 
 .vis-container {
-    width: 10px;
+    width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
+    padding: 2vw;
 }
 #watersprout_map {
     position: relative;
@@ -121,4 +123,32 @@ body h1 {
 }
 .pure-u-1-2, .pure-u-12-24 {
     width: 920px !important;
+}
+
+
+/* Example of a media query for screens smaller than 80% of the window width */
+@media screen and (max-width: 80vw) {
+    /* Adjust layout, font sizes, and element widths for smaller screens */
+    body {
+        font-size: 14px; /* Smaller text for smaller screens */
+        width: 1157px;
+        margin: 0 auto;
+    }
+
+    .pure-u-1-2 {
+        width: 100%; /* Make each column take full width in a single column layout */
+    }
+
+    .vis-container {
+        margin: 10px 0; /* Add margin between visualizations */
+        padding: 10px; /* Adjust padding to prevent overlapping */
+    }
+
+    h1 {
+        font-size: 2em; /* Scale down large text */
+    }
+
+    .description-right-inside {
+        width: 100%; /* Stack descriptions in a single column on smaller screens */
+    }
 }
