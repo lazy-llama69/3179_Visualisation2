@@ -23,7 +23,7 @@
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h1>The "Happening" Weather in Australia</h1>
+        <h1><u>Visual Insights into Australia's Weather Extremes</u></h1>
       </div>
     </div>
     <!-- end pure grid group -->
@@ -36,79 +36,216 @@
 
     <!-- Container for two visualizations and their respective descriptions -->
     <div class="pure-g">
-      <!-- First visualization and its description -->
-      <div class="pure-u-1-2">
-          <div id="symbol_map" class="vis-container"></div> <!-- First visualization -->
-          <div class="description description-left">
-              <h2>Description for First Visualization</h2>
-              <p>This is the description text for the first visualization. It explains the data and insights shown in this visualization.
-                Hola como estas compadre
-                Hola como estas compadre
-                Hola como estas compadre
-                Hola como estas compadre
-              </p>
-          </div>
-      </div>
+        <!-- First visualization and its description -->
+        <div class="pure-u-1-2">
+            <div id="symbol_map" class="vis-container">
+                <div id="symbol_map_vis"></div> 
+                <div class="description-container">
+            
+                  <!-- Original description box -->
+                  <div class="description-right-inside">
+                    <h2>Unveiling Australia's Seismic Story</h2>
+                    <p>
+                      Australia, known for its stunning landscapes and diverse ecosystems, 
+                      has an intriguing tale beneath its surface-the story of earthquakes.
+                    </p>
+                    <p>  
+                      The highest recorded earthquake magnitude in Australia is 
+                      <span style="color: #c22038;">3</span> on the Fuji scale, 
+                      primarily in <span style="color: #d37382;">New South Wales</span> and 
+                      <span style="color: #d8b85f;">Queensland</span>.
+                    </p>
+                  </div>
+                  <div class="description-right-inside">
+                      <h2>Understanding the Patterns and Impacts</h2>
+                      <p>While these <span style="color: #d7a685;">tremors</span> may seem small compared to global standards, 
+                        they remind us of the dynamic forces at work beneath our feet. Historically, 
+                        Australia has experienced fluctuations in seismic activity, 
+                        with certain areas showing a higher frequency of earthquakes. 
+                        Understanding these patterns helps prepare communities for future seismic events.
+                      </p>
+                  </div>
+              </div>
+                
+            </div> 
+        </div>
+  
 
       <!-- Second visualization and its description -->
       <div class="pure-u-1-2">
-          <div id="hail_map" class="vis-container"></div> <!-- Second visualization -->
-          <div class="description description-second">
-              <h2>Description for Second Visualization</h2>
-              <p>This is the description text for the second visualization. It explains the context and insights shown in this visualization.
+        <div id="hail_map" class="vis-container">
+            <div id="hail_map_vis"></div> 
+            <div class="description-container">
+            
+              <!-- Original description box -->
+              <div class="description-right-inside">
+                <h2>❄️Hailstorms❄️</h2>
+                <p>
+                  Australia, known for its <strong>unpredictable</strong> weather, 
+                  experiences severe hailstorms that can significantly impact both the environment and communities. 
+                  
+                </p>
+                <p>  
+                  The largest recorded hail size in Australia reaches <span style="color: #c22038;">16cm</span>, 
+                  which was observed in <span style="color: #d8b85f;">Queensland</span>.
+                </p>
+              </div>
+              <div class="description-right-inside">
+                  <h2>Hailstorms: Nature's Ice Pellets in Action!</h2>
+                  <p>
+                    Hailstorms in Australia are a thrilling display of nature's power! 
+                    These icy wonders form during warm months when strong updrafts lift moisture high into the sky, 
+                    creating impressive <span style="color: #5cbeff;">ice pellets</span>, that fall upon the ground from the sky. 
+                    The southeastern regions often see the biggest hailstone sizes, 
+                    turning a regular old boring storm into a spectacular spectacle!
+                  </p>
+              </div>
+          </div>
+            
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Container for waterspout visualization and text description -->
+    <div class="pure-g waterspout-container">
+      <div class="pure-u-1-1">
+        <div id="watersprout_map" class="vis-container">
+          <!-- Visualization on the left -->
+          <div id="watersprout_vis"></div>
+          
+          <!-- Description on the right inside the same container -->
+          <!-- Description container on the right inside the same container -->
+          <div class="description2-container">
+
+            <!-- Second description -->
+            <div class="description-right-inside">
+              <h2>Maximize Your Waterspout Exploration!</h2>
+              <p><strong>1. Use the Line Chart:</strong></p><p>
                 
-              </p>
-          </div>
-      </div>
-    </div>
-
-
-    <!-- Container for waterspout visualization and text description -->
-    <div class="pure-g waterspout-container">
-        <!-- Waterspout visualization on the left -->
-        <div class="pure-u-1-2">
-            <div id="watersprout_map" class="vis-container"></div> <!-- Waterspout visualization -->
-        </div>
-
-        <!-- Text description on the right -->
-        <div class="pure-u-1-2">
-            <div class="description description-right">
-                <h2>Waterspout Visualization Description</h2>
-                <p>This is the description for the waterspout visualization. It provides insights and context related to the data being displayed.</p>
+                Slide through time to see waterspout occurrences during specific periods.</p>
+              <p><strong>2. Stacked Area Chart Insight:</strong></p><p> Observe the count of waterspouts over time, helping you identify trends.</p>
+              <p><strong>3. Longest Duration Indicators:</strong></p><p> Look for squares in the visualization! 
+                It highlights waterspout instances with the longest durations in the selected time frame.</p>
+                
             </div>
+            <!-- First description -->
+            <div class="description-right-inside">
+              <h2>Waterspouts: Nature's Twirling Waters</h2>
+              <p>
+                Waterspouts are mesmerizing whirlwinds that form over bodies of water, 
+                often captivating onlookers with their dramatic displays. 
+                In Australia, these phenomena are most common along the eastern coastline, 
+                particularly in <span style="color: #d8b85f;">Queensland</span>, where warm ocean waters and atmospheric conditions converge.
+              </p>
+              <p>
+                As they develop, waterspouts can pick up water, marine debris, 
+                and even small fish, creating a striking spectacle. 
+                Observing waterspouts in action is a reminder of nature's incredible power and beauty, 
+                offering both awe and caution to those who witness them.
+              </p>
+              <p>
+                The highest number of waterspouts recorded in a single event is 6, 
+                which occurred on<span style="color: #dc9596;"> February 24, 2013</span>, also in 
+                <span style="color: #d8b85f;">Queensland</span>. While they may appear beautiful, 
+                waterspouts can be dangerous, leading to sudden storms and rough seas. 
+              </p>
+            
+            </div>
+            
+            
+          </div>
         </div>
-    </div>
-
-
-    <div class="container">
-      <div class="description-rain-left">
-        <h2>Left Text</h2>
-        <p>This is the text on the left side.</p>
-      </div>
-      <div class="vis-container">
-        <div id="rain_map"></div>
-      </div>
-      <div class="description-rain-right">
-        <h2>Right Text</h2>
-        <p>This is the text on the right side.</p>
       </div>
     </div>
 
-    <!-- Container for waterspout visualization and text description -->
-    <div class="pure-g waterspout-container">
-      <!-- Waterspout visualization on the left -->
-      <div class="pure-u-1-2">
-          <div id="anomaly_chart" class="vis-container"></div> <!-- Waterspout visualization -->
-      </div>
 
-      <!-- Text description on the right -->
+
+
+    <!-- Container for rain_map and anomaly_chart visualizations -->
+    <div class="pure-g">
+      <!-- Rain Map Visualization with its Description -->
       <div class="pure-u-1-2">
-          <div class="description description-right">
-              <h2>Waterspout Visualization Description</h2>
-              <p>This is NOT the waterspout visualisation description. It provides insights and context related to the data being displayed.</p>
+          <div id="rain_map_container" class="vis-container">
+              <!-- Visualization for Rain Map -->
+              <div id="rain_map"></div>
+              <div class="description-container">
+            
+                <!-- Original description box -->
+                <div class="description-right-inside">
+                  <h2>Insights into Australia's Wet and Dry Regions</h2>
+                  <p>
+                    States like <span style="color: #faa381;">Tasmania</span> showcase higher precipitation per square kilometer due to their unique climate, 
+                    while larger states like <span style="color: #d8b85f;">Queensland</span>  may have lower normalized values. 
+                  </p>
+                  <p> 
+                    This data reveals trends in seasonal rainfall, which can inform strategies for managing water resources, 
+                    predicting drought conditions, and enhancing agricultural practices across the continent.
+                  </p>
+                </div>
+                <div class="description-right-inside">
+                    <h2>The Ripple Effects of Rain</h2>
+                    <p>
+                      Rainfall is essential for Australia's ecosystems, affecting agriculture and water supply. 
+                      The uneven distribution of rainfall poses challenges, particularly in states like 
+                      <span style="color: #d37382;">New South Wales</span> and 
+                      <span style="color: #ffb561;">Victoria</span>, 
+                      where seasonal variations impact resources. 
+                    </p>
+                    <p>  
+                      Analyzing this data allows us to understand trends and patterns in rainfall, 
+                      we gain valuable insights that inform effective water management policies, 
+                      which is crucial for adapting to Australia's changing climate.
+                    </p>
+                </div>
+            </div>
           </div>
       </div>
-  </div>
+
+      <!-- Anomaly Chart Visualization -->
+      <div class="pure-u-1-2">
+          <div id="anomaly_chart_container" class="vis-container">
+              <!-- Visualization for Anomaly Chart -->
+              <div id="anomaly_chart"></div>
+              <div class="description-container">
+            
+                <!-- Original description box -->
+                <div class="description-right-inside">
+                  <h2>Guide to the Visualization: Mean Temperature Anomalies and Indicators</h2>
+                  <p>  
+                    1. <span style="color: #1a3282;"><strong>Blue bars</strong></span>: Below-average temperatures.
+                  </p>  
+                  <p>
+                    2. <span style="color: #ff0000;"><strong>Red bars</strong></span>: Above-average temperatures. 
+                  </p>  
+                  <p>
+                    3. <strong>Black line</strong>: Running average over <strong>4 years</strong>.
+                  </p>  
+                  <p>
+                    Mean temperature anomalies measure deviations from a long-term average. 
+                    This visualisation highlights an urgent need for climate action.
+                  </p>
+                </div>
+                <div class="description-right-inside">
+                    <h2>A Climate Narrative: The Story Behind the Anomalies</h2>
+                    <p>
+                      The fluctuations in temperature anomaly impact ecosystems, causing wildlife to adapt and shifting weather patterns. 
+                      Warmer conditions alter natural cycles, pushing species to change migration routes.
+
+                    </p>
+                    <p>
+                      The <strong>black line</strong> shows an undeniable warming trend. 
+                      Understanding these anomalies urges us to engage in climate action, 
+                      reminding us that our choices today will shape the future of our planet.
+                    </p>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+
 
 
     <script type="text/javascript">
@@ -119,25 +256,25 @@
       var spec5 = "js/rain.vg.json";
       var spec6 = "js/temp_anomaly.vg.json";
 
-      vegaEmbed('#symbol_map', spec2).then(function(result) {
+      vegaEmbed('#symbol_map_vis', spec2, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
       // d3.csv('https://raw.githubusercontent.com/lazy-llama69/3179_Visualisation2/main/data/tornado.csv')
       // .then(data => console.log(data));
 
-      vegaEmbed('#hail_map', spec3).then(function(result) {
+      vegaEmbed('#hail_map_vis  ', spec3, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      vegaEmbed('#watersprout_map', spec4).then(function(result) {
+      vegaEmbed('#watersprout_vis', spec4, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     
-      vegaEmbed('#rain_map', spec5).then(function(result) {
+      vegaEmbed('#rain_map', spec5, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      vegaEmbed('#anomaly_chart', spec6).then(function(result) {
+      vegaEmbed('#anomaly_chart', spec6, { actions: false }).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     </script>

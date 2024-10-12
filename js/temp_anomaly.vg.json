@@ -1,12 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Annual Mean Temperature Anomaly in Australia (1910 to 2023) with a 9-year Running Average",
+  "title": {
+    "text": "Annual Mean Temperature Anomaly Australia (1910-2023)",
+    "fontSize": 28,
+    "font": "Helvetica",
+    "anchor": "start",
+    "dx": 0
+  },
   "data": {
     "url": "./data/anomaly.csv",
     "format": {"type": "csv"}
   },
-  "width": 700,
-  "height": 400,
+  "width": 840,
+  "height": 387,
+  "background": "#fffef7",
   "layer": [
     {
       "mark": {
@@ -35,9 +43,9 @@
         "color": {
           "condition": {
             "test": "datum.Anomaly >= 0",
-            "value": "red"
+            "value": "#ff0000"
           },
-          "value": "blue"
+          "value": "#1a3282"
         }
       }
     },
@@ -52,6 +60,32 @@
       "encoding": {
         "x": {"field": "Year", "type": "ordinal"},
         "y": {"field": "RollingAverage", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {
+        "url": "./data/anomaly.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.Year == 1978"
+        },
+        {
+          "calculate": "datum['Year'] + ': Transition to consistently above-average temperatures.'",
+          "as": "customAnnotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 80, 
+        "dy": 70,
+        "fontSize": 12,  
+        "fontWeight": "normal",
+        "fill": "pink"
+      },
+      "encoding": {
+        "text": { "field": "customAnnotation", "type": "nominal" }
       }
     }
   ],
