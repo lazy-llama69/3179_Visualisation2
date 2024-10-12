@@ -82,7 +82,8 @@
           }
         ],
         "mark": {
-          "type": "circle",
+          "type": "point",
+          "filled": true,
           "tooltip": true
         },
         "encoding": {
@@ -98,7 +99,7 @@
             "field": "Duration",
             "type": "quantitative",
             "title": "Duration in mins",
-            "scale": {"scheme": "blueorange", "domain": [0, 160]}
+            "scale": {"scheme": "darkblue", "domain": [0, 160]}
           },
           "opacity": {
             "value": 0.8
@@ -131,7 +132,7 @@
             "filter": "datum['Hail size'] > 11"  
           },
           {
-            "calculate": "'Hail Size: ' + datum['Hail size'] + ' cm, Duration: ' + datum['Duration']",
+            "calculate": "'Hail Size: ' + datum['Hail size'] + ' cm, Duration: ' + datum['Duration']+ ' mins'",
             "as": "customAnnotation"
           }
         ],

@@ -86,7 +86,7 @@
         }
       ],
       "mark": {
-        "type": "point",
+        "type": "square",
         "tooltip": true
       },
       "encoding": {

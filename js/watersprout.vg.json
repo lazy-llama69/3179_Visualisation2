@@ -91,7 +91,9 @@
     {
       "width": 1000,
       "height": 60,
-      "mark": "line",
+      "mark": {
+        "type": "line",
+      "tooltip": true},
       "title": "Use this line chart to filter out the data based on time",
       "params": [
         {
@@ -111,12 +113,15 @@
           "axis": { "tickCount": 3, "grid": false },
           "title": "Number of Events"
         }
+        
       }
     },
     {
       "width": 1000,
-      "height": 80,
-      "mark": "area",
+      "height": 145,
+      "mark": {
+        "type": "area",
+      "tooltip": true},
       "transform": [
         { "filter": { "param": "time_brush" } }
       ],
@@ -136,7 +141,11 @@
             "range": ["#ade8f4", "#48cae4", "#00b4d8", "#0077b6", "#03045e"]
           },
           "legend": null
-        }
+        },
+        "tooltip": [
+          { "timeUnit": "Date/Time", "field": "Date/Time", "type": "temporal", "title": "Month" },
+          { "field": "Count of Waterspouts", "type": "quantitative", "title": "Duration (mins)" }
+        ]
       }
     }
   ],
