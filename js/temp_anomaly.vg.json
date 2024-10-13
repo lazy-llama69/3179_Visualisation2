@@ -82,7 +82,7 @@
         "dy": 70,
         "fontSize": 12,  
         "fontWeight": "normal",
-        "fill": "pink"
+        "fill": "darkblue"
       },
       "encoding": {
         "text": { "field": "customAnnotation", "type": "nominal" }
