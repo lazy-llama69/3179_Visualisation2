@@ -9,10 +9,8 @@ body {
     align-items: center;
     justify-content: center;
     height: auto;
-    width: 1157;
+    width: 1902px;
 }
-
-
 .pure-g{
     gap: 5px; /* Adds 10px spacing between the child elements */
 }
@@ -86,8 +84,8 @@ body h1 {
     flex-direction: row; /* Horizontal alignment of items */
     justify-content: flex-start; /* Space between visualization and text */
     align-items: flex-start; /* Align items to the top */
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
     margin-top: 0px;
 }
 
@@ -124,7 +122,12 @@ body h1 {
 .pure-u-1-2, .pure-u-12-24 {
     width: 920px !important;
 }
-
+.source-text {
+    position: relative;
+    font-size: 14px;
+    color: #333;  /* Adjust color if needed */
+    margin: 0;    /* Ensure no default margins are applied */
+}
 
 /* Example of a media query for screens smaller than 80% of the window width */
 @media screen and (max-width: 80vw) {

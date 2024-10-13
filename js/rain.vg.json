@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-      "text": "Australia's Precipitation Patterns: A Choropleth Exploration",
+      "text": "Australia's Precipitation Patterns since 2000",
     "fontSize": 28,
           "font": "Helvetica",
           "anchor": "start",
