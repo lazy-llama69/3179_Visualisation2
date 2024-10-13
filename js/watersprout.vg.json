@@ -118,7 +118,7 @@
     },
     {
       "width": 1000,
-      "height": 145,
+      "height": 135,
       "mark": {
         "type": "area",
       "tooltip": true},
